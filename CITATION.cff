@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "润泽说 道可道之易传"
+subtitle: "《周易》六十四卦与《系辞》上下篇读本"
+authors:
+  - name: "润泽说易"
+abstract: "以王弼本为正文，参《周易正义》《周易本义》《周易集解》，帛书作异文校勘；每卦一卷、七节同构，逐爻兼通老庄，辨人为之合与天道之和。"
+license: CC-BY-NC-SA-4.0
+version: "1.50.0"
+date-released: "2026-11-13"

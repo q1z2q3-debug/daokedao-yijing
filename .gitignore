@@ -1,0 +1,10 @@
+# 构建中间产物（由 apk/prepare-assets.py 与 apk/build.sh 重建）
+apk/build/
+apk/dist/
+apk/assets/book.html
+apk/assets/fonts/
+
+# 自检截图与临时产物
+_shots/
+*.tmp
+.DS_Store
