@@ -20,6 +20,10 @@ SITE = "https://q1z2q3-debug.github.io/daokedao-yijing"
 BOOK = "润泽说 道可道之易传"
 AUTHOR = "润泽说易"
 VER = "v1.50.0"
+DOI = "10.5281/zenodo.24185930"
+DOI_URL = "https://doi.org/" + DOI
+HF_URL = "https://huggingface.co/datasets/q1z2q3/daokedao-yijing"
+RELEASE_URL = "https://github.com/q1z2q3-debug/daokedao-yijing/releases/tag/v1.50.0"
 DESC = ("《周易》六十四卦与《系辞》上下篇的完整读本：72 卷、50.5 万字，一卦一卷、七节同构；"
         "关键字回到先秦字形，逐爻兼通老庄，辨人为之合与天道之和。")
 
@@ -56,6 +60,9 @@ CSS_EXTRA = """
 .navend{max-width:40rem;margin:2.4rem auto 4rem;padding:1.2rem 1.5rem 0;border-top:1px solid var(--line);
   display:flex;flex-wrap:wrap;gap:.6rem 1rem;justify-content:space-between;font-size:.92rem}
 .navend a{color:var(--ochre);text-decoration:none}
+.citebox{max-width:40rem;margin:0 auto 4rem;padding:1rem 1.5rem 0;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.8rem;line-height:1.85}
+.citebox a{color:var(--ochre);text-decoration:none}
 """
 
 PAGE = """<!DOCTYPE html>
@@ -98,6 +105,10 @@ PAGE = """<!DOCTYPE html>
 {body}
 </main>
 <div class="navend"><div>{prev}</div><div>{nxt}</div></div>
+<footer class="citebox">
+  <p>引用：{author}《{book}》{ver}（2026）· <a href="{site}/cite/">引用与存档</a> · DOI <a href="{doiurl}" rel="noopener">{doi}</a></p>
+  <p><a href="{hf}" rel="noopener">HuggingFace 数据集</a> · <a href="{release}" rel="noopener">PDF 与离线安卓包</a></p>
+</footer>
 </body>
 </html>
 """
@@ -276,9 +287,21 @@ footer a{{color:var(--ochre);text-decoration:none}}
 <div class="rows">{tail}</div>
 </section>
 
+
+<section>
+<h2>存档与引用</h2>
+<p class="note">同一版的三个落脚点：引用取 DOI，检索取数据集，下载取 Release。</p>
+<div class="rows">
+<a href="{doiurl}" rel="noopener"><span>Zenodo · DOI（可引用）</span><span>{doi}</span></a>
+<a href="{hf}" rel="noopener"><span>HuggingFace 数据集</span><span>72 卷全文，句子级检索</span></a>
+<a href="{release}" rel="noopener"><span>GitHub Release</span><span>PDF / 离线安卓包 / 提示词</span></a>
+<a href="{site}/cite/"><span>引用格式</span><span>GB/T 7714 · BibTeX · APA</span></a>
+</div>
+</section>
+
 <footer>
-<p>许可：<a href="{repo}/blob/main/LICENSE" rel="noopener">CC BY-NC-SA 4.0</a>（署名、非商业、相同方式共享）。引用请注明书名与版本号。</p>
-<p>当前版本 {ver} · 六十四卦已全，此后只作修订与勘误 · <a href="{repo}" rel="noopener">github.com/q1z2q3-debug/daokedao-yijing</a></p>
+<p>许可：<a href="{repo}/blob/main/LICENSE" rel="noopener">CC BY-NC-SA 4.0</a>（署名、非商业、相同方式共享）。引用请注明书名、版本号与 DOI。</p>
+<p>DOI <a href="{doiurl}" rel="noopener">{doi}</a> · 当前版本 {ver} · 六十四卦已全，此后只作修订与勘误 · <a href="{repo}" rel="noopener">github.com/q1z2q3-debug/daokedao-yijing</a></p>
 </footer>
 </div>
 </body>
@@ -325,6 +348,7 @@ def build_landing(entries):
         book=BOOK, ver=VER, desc=DESC, site=SITE, author=AUTHOR,
         repo="https://github.com/q1z2q3-debug/daokedao-yijing",
         releases="https://github.com/q1z2q3-debug/daokedao-yijing/releases/latest",
+        doi=DOI, doiurl=DOI_URL, hf=HF_URL, release=RELEASE_URL,
         nchar="50.5 万", prelude=prelude, upper=upper, lower="".join(lower), tail=tail,
         jsonld=json.dumps(jsonld, ensure_ascii=False, indent=1)))
 
@@ -332,6 +356,137 @@ def build_landing(entries):
           '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
           '<rect width="64" height="64" fill="#F5F2ED"/><text x="32" y="45" font-size="36" '
           'text-anchor="middle" fill="#994433" font-family="serif">易</text></svg>')
+
+
+CITE = """<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>引用与存档｜{book}</title>
+<meta name="description" content="《{book}》{ver} 的引用格式、DOI、数据集镜像与附件清单：一份可直接粘进论文、档案与书目的信息页。" />
+<link rel="canonical" href="{site}/cite/" />
+<meta name="robots" content="index,follow" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="引用与存档｜{book}" />
+<meta property="og:description" content="DOI、数据集镜像、附件清单与三种引用格式。" />
+<meta property="og:url" content="{site}/cite/" />
+<meta property="og:image" content="{site}/og.png" />
+<link rel="icon" href="{site}/favicon.svg" />
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" />
+<script type="application/ld+json">
+{jsonld}
+</script>
+<style>
+:root{{--paper:#F5F2ED;--ink:#25211D;--muted:#6E6559;--ochre:#994433;--line:#DED5C6}}
+*{{box-sizing:border-box}}
+body{{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;line-height:1.9;
+  -webkit-font-smoothing:antialiased}}
+.wrap{{max-width:44rem;margin:0 auto;padding:1.4rem 1.25rem 4rem}}
+.bar{{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.5rem 0 1rem;border-bottom:1px solid var(--line);font-size:.86rem}}
+.bar a{{color:var(--ochre);text-decoration:none}}
+h1{{font-size:1.85rem;line-height:1.45;margin:2rem 0 .6rem;letter-spacing:.02em}}
+.sub{{color:var(--muted);font-size:.92rem;margin-bottom:2rem}}
+h2{{font-size:1.05rem;margin:2.2rem 0 .5rem;letter-spacing:.14em;font-weight:700}}
+h2:before{{content:"";display:inline-block;width:.42rem;height:.42rem;background:var(--ochre);margin-right:.5rem;vertical-align:.18rem}}
+pre{{background:#fff;border:1px solid var(--line);border-left:3px solid var(--ochre);padding:.9rem 1rem;overflow-x:auto;white-space:pre-wrap;word-break:break-word;font-size:.84rem;line-height:1.8;margin:.6rem 0 1.2rem;font-family:ui-monospace,Menlo,Consolas,monospace}}
+table{{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.84rem;margin:.6rem 0 1rem;background:#fff;border:1px solid var(--line)}}
+th,td{{padding:.5rem .6rem;border-bottom:1px solid #EFE8DA;text-align:left;vertical-align:top}}
+th{{color:var(--muted);font-weight:600}}
+th:nth-child(1){{width:34%}} th:nth-child(2){{width:26%}} th:nth-child(3){{width:40%}}
+a{{color:var(--ochre);text-decoration:none;border-bottom:1px solid transparent}}
+a:hover{{border-bottom-color:var(--ochre)}}
+.note{{color:var(--muted);font-size:.85rem}}
+footer{{margin-top:2.6rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="bar"><a href="{site}/">润泽说 · 易传</a><a href="{site}/book.html">读全书</a></div>
+
+<h1>引用与存档</h1>
+<p class="sub">{book}　{ver}　{verdate}　许可 CC BY-NC-SA 4.0</p>
+
+<h2>本版身份</h2>
+<table>
+<tr><th>项</th><td colspan="2">值</td></tr>
+<tr><th>题名</th><td colspan="2">{book}（{ver}）</td></tr>
+<tr><th>著者</th><td colspan="2">{author}</td></tr>
+<tr><th>类型</th><td colspan="2">图书 / 数据集（Zenodo publication·book）</td></tr>
+<tr><th>DOI</th><td colspan="2"><a href="{doiurl}" rel="noopener">{doi}</a></td></tr>
+<tr><th>日期</th><td colspan="2">{verdate}</td></tr>
+<tr><th>许可</th><td colspan="2"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener">CC BY-NC-SA 4.0</a></td></tr>
+</table>
+
+<h2>三种格式，直接粘</h2>
+<p class="note">GB/T 7714（中文期刊、学位论文）</p>
+<pre>{author}. {book}: {ver}[M/OL]. 2026-11-13[{today}]. {doiurl}.</pre>
+<p class="note">APA 7th（英文论文、报告）</p>
+<pre>{author_pinyin}. (2026). {book} ({ver}) [Book]. Zenodo. {doiurl}</pre>
+<p class="note">BibTeX（LaTeX、Zotero）</p>
+<pre>@book{{daokedao_yijing_2026,
+  author    = {{{author}}},
+  title     = {{{book}: 六十四卦与系辞上下篇读本}},
+  year      = {{2026}},
+  version   = {{{ver}}},
+  publisher = {{Zenodo}},
+  doi       = {{{doi}}},
+  url       = {{{doiurl}}},
+  language  = {{zh}},
+  note      = {{CC BY-NC-SA 4.0}}
+}}</pre>
+
+<h2>三处落脚</h2>
+<table>
+<tr><th>位置</th><th>用途</th><th>地址</th></tr>
+<tr><td>Zenodo</td><td>学术引用、长期存档</td><td><a href="{doiurl}" rel="noopener">{doi}</a></td></tr>
+<tr><td>HuggingFace</td><td>全文检索、语料取用</td><td><a href="{hf}" rel="noopener">q1z2q3/daokedao-yijing</a></td></tr>
+<tr><td>GitHub Release</td><td>下载 PDF / APK</td><td><a href="{release}" rel="noopener">v1.50.0 附件</a></td></tr>
+</table>
+
+<h2>附件清单</h2>
+<table>
+<tr><th>文件</th><th>体量</th><th>说明</th></tr>
+<tr><td>daokedao-yijing-v1.50.0.pdf</td><td>29,431,174 B</td><td>成书 PDF，704 页</td></tr>
+<tr><td>daokedao-yijing-v1.50.0.html</td><td>1,750,367 B</td><td>单文件阅读页，断网可读</td></tr>
+<tr><td>daokedao-yijing-v1.50.0.md</td><td>1,359,728 B</td><td>Markdown 母本，72 卷</td></tr>
+<tr><td>yijing-agent-prompt-v1.50.0.pdf</td><td>5,145,316 B</td><td>问答 Agent 提示词与检索表</td></tr>
+<tr><td>daokedao-yijing-reader-1.50.0.apk</td><td>3,126,298 B</td><td>安卓离线包，零权限</td></tr>
+</table>
+<p class="note">全部附件的 SHA-256 见 Release 内 SHA256SUMS；Zenodo 记录自带校验和，可逐件核对。</p>
+
+<h2>修订约定</h2>
+<p>六十四卦已全。此后的改动只限勘误、训释校正与版式修复，不重写义理；每一版冻结一次、留一条 git tag 与一份 Zenodo 记录，旧版 DOI 永不变更。</p>
+
+<footer>
+<p>引用请注明书名、版本号与 DOI。勘误请提 issue：<a href="https://github.com/q1z2q3-debug/daokedao-yijing/issues" rel="noopener">GitHub Issues</a></p>
+</footer>
+</div>
+</body>
+</html>
+"""
+
+
+def build_cite():
+    jsonld = {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "name": "引用与存档｜%s" % BOOK,
+        "description": "《%s》%s 的引用格式、DOI、数据集镜像与附件清单。" % (BOOK, VER),
+        "url": SITE + "/cite/",
+        "identifier": DOI_URL,
+        "author": {"@type": "Person", "name": AUTHOR},
+        "datePublished": "2026-11-13",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "isPartOf": {"@type": "Book", "name": BOOK, "bookEdition": VER,
+                     "numberOfPages": 704, "url": SITE + "/"},
+        "sameAs": [DOI_URL, HF_URL, RELEASE_URL],
+    }
+    write(os.path.join(DOCS, "cite", "index.html"), CITE.format(
+        book=BOOK, ver=VER, verdate="2026-11-13", today="2026-11-13", author=AUTHOR,
+        author_pinyin="Runzeshuo Yi", site=SITE, doi=DOI, doiurl=DOI_URL,
+        hf=HF_URL, release=RELEASE_URL,
+        jsonld=json.dumps(jsonld, ensure_ascii=False, indent=1)))
 
 
 def main():
@@ -386,10 +541,11 @@ def main():
             css=css, css_extra=CSS_EXTRA, body=e["body"],
             prev=('<a href="%s">← %s</a>' % (prev["url"], re.sub(r"｜.*", "", prev["title"]))) if prev else "&nbsp;",
             nxt=('<a href="%s">%s →</a>' % (nxt["url"], re.sub(r"｜.*", "", nxt["title"]))) if nxt else "&nbsp;",
+            doi=DOI, doiurl=DOI_URL, hf=HF_URL, release=RELEASE_URL, ver=VER,
         ))
 
     # sitemap：首页、全书、逐页
-    urls = [(SITE + "/", "1.0"), (SITE + "/book.html", "0.9")]
+    urls = [(SITE + "/", "1.0"), (SITE + "/book.html", "0.9"), (SITE + "/cite/", "0.9")]
     urls += [(e["url"], "0.8") for e in entries]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -400,6 +556,9 @@ def main():
     write(os.path.join(DOCS, "robots.txt"),
           "User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % SITE)
 
+    os.makedirs(os.path.join(DOCS, "cite"), exist_ok=True)
+    build_cite()
+
     build_landing(entries)
     write(os.path.join(DOCS, "llms.txt"), """# {book}（{ver}）
 
@@ -408,6 +567,9 @@ def main():
 - 全书阅读页：{site}/book.html
 - 成书 PDF（704 页，29 MB）：https://github.com/q1z2q3-debug/daokedao-yijing/releases/download/{ver}/daokedao-yijing-v1.50.0.pdf
 - 安卓离线包（零权限、断网可用）：https://github.com/q1z2q3-debug/daokedao-yijing/releases/download/{ver}/daokedao-yijing-reader-1.50.0.apk
+- 永久存档（DOI，可引用）：{doiurl}
+- HuggingFace 数据集（全文检索）：{hf}
+- 引用格式与附件清单：{site}/cite/
 - 源码与逐版校订留痕：https://github.com/q1z2q3-debug/daokedao-yijing
 - 全书索引：{site}/sitemap.xml
 
@@ -417,7 +579,7 @@ def main():
 
 ## 许可
 CC BY-NC-SA 4.0。引用请注明书名与版本号。
-""".format(book=BOOK, ver=VER, desc=DESC, site=SITE))
+""".format(book=BOOK, ver=VER, desc=DESC, site=SITE, doiurl=DOI_URL, hf=HF_URL))
 
     print("页面 %d（含首页与全书页共 %d 条 sitemap）" % (len(entries), len(urls)))
     return entries

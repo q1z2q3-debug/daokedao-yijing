@@ -5,6 +5,9 @@
 - 全书阅读页：https://q1z2q3-debug.github.io/daokedao-yijing/book.html
 - 成书 PDF（704 页，29 MB）：https://github.com/q1z2q3-debug/daokedao-yijing/releases/download/v1.50.0/daokedao-yijing-v1.50.0.pdf
 - 安卓离线包（零权限、断网可用）：https://github.com/q1z2q3-debug/daokedao-yijing/releases/download/v1.50.0/daokedao-yijing-reader-1.50.0.apk
+- 永久存档（DOI，可引用）：https://doi.org/10.5281/zenodo.24185930
+- HuggingFace 数据集（全文检索）：https://huggingface.co/datasets/q1z2q3/daokedao-yijing
+- 引用格式与附件清单：https://q1z2q3-debug.github.io/daokedao-yijing/cite/
 - 源码与逐版校订留痕：https://github.com/q1z2q3-debug/daokedao-yijing
 - 全书索引：https://q1z2q3-debug.github.io/daokedao-yijing/sitemap.xml
 
