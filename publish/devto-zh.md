@@ -1,7 +1,7 @@
 ---
 title: "把 50 万字古籍做成 3 MB 安卓阅读器：一条从 Markdown 到 APK 的流水线"
 published: false
-description: "不用 Gradle、不装 Android Studio：一份 Markdown 母本，派生阅读页、704 页 PDF、零权限 APK 与 70 个可检索页面。踩过的坑与能抄的代码。"
+description: "不用 Gradle、不装 Android Studio：一份 Markdown 母本，派生阅读页、704 页 PDF、零权限 APK 与 71 个可检索页面。踩过的坑与能抄的代码。"
 tags: opensource, android, webdev, chinese
 canonical_url: https://q1z2q3-debug.github.io/daokedao-yijing/
 ---
@@ -106,3 +106,14 @@ GitHub 附件有几个脾气：
 4. 零权限是优点。一个连不上网的阅读器，也就泄不了任何东西——用户是看得见的。
 
 书是 CC BY-NC-SA 4.0。APK 在 [releases](https://github.com/q1z2q3-debug/daokedao-yijing/releases/latest)，3 MB，无权限，飞行模式可用。
+
+## 做完之后再补一件事：让它能被引用
+
+站点、PDF、APK 都是「给人看」的，但学术与档案场景要的是「能被引用」。所以这一版又加了两处：
+
+- **Zenodo 存档，DOI `10.5281/zenodo.24185930`**：成书 PDF、HTML、Markdown、提示词 PDF、APK 五件一并存缴，许可 CC BY-NC-SA 4.0，旧版 DOI 永不变更。
+- **HuggingFace 数据集 `q1z2q3/daokedao-yijing`**：72 卷全文可直接做语料检索，卡片里带 DOI 回指。
+
+站点也补了一页 `/cite/`，GB/T 7714、APA、BibTeX 三式直接粘。一句话：书要能被找到，也要能被署名引用。
+
+> 润泽说易. 《润泽说 道可道之易传》: v1.50.0[M/OL]. 2026-11-13. https://doi.org/10.5281/zenodo.24185930

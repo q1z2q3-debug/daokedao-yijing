@@ -132,7 +132,7 @@ https://doi.org/10.5281/zenodo.24185930
 | GitHub Pages | ✅ 已上线 | `docs/index.html` 即全书阅读页，手机可直接读 |
 | GitHub Release | ✅ 已发布 | v1.50.0 附 PDF／APK／提示词 PDF 三件；打 `v*` tag 时 workflow 自动重建 Release |
 | Gitee／GitLab／Codeberg | ⏳ 待配置 | 一键脚本已备：`scripts/mirror.sh gitee`，只需先把带凭据的 remote 加进来 |
-| dev.to | ✅ 已发布（英文） | [505,000 Chinese characters, 3 MB APK](https://dev.to/q1z2q3debug/505000-chinese-characters-3-mb-apk-shipping-a-classical-text-as-an-offline-reader-1l3h)：build log，canonical 回指本站；中文稿 `publish/devto-zh.md` 待发 |
+| dev.to | ✅ 已发布（英文） | [505,000 Chinese characters, 3 MB APK](https://dev.to/q1z2q3debug/505000-chinese-characters-3-mb-apk-shipping-a-classical-text-as-an-offline-reader-1l3h)：build log，canonical 回指本站；中文版同日发布：[把 50 万字古籍做成 3 MB 安卓阅读器](https://dev.to/q1z2q3debug/ba-50-mo-zi-gu-ji-zuo-cheng-3-mb-an-zhuo-yue-du-qi-tiao-cong-markdown-dao-apk-de-liu-shui-xian-4o7b) |
 | 公众号／知乎／豆瓣 | ⏳ 未做 | 需人工排版与账号，不是镜像能解决的 |
 
 镜像只推 `main` 与版本 tag，不重写历史；失败即停，不吞错误。
