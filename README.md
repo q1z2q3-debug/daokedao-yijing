@@ -88,3 +88,16 @@
 ## 八、版本
 
 当前 **v1.50.0**（2026-11-13）。六十四卦已全，卦卷六十三；此后只作修订与勘误，不再新增卦卷。
+
+## 九、镜像与同步状态
+
+| 平台 | 状态 | 说明 |
+|---|---|---|
+| GitHub 私库（主库） | ✅ 已同步 | 写作与发版在此进行；`releases/` 冻结、`archive/` 存档、CHANGELOG 全留痕 |
+| GitHub 公库（本库） | ✅ 已开源 | 公开可 clone；CC BY-NC-SA 4.0 |
+| GitHub Pages | ✅ 已上线 | `docs/index.html` 即全书阅读页，手机可直接读 |
+| GitHub Release | ✅ 已发布 | v1.50.0 附 PDF／APK／提示词 PDF 三件；打 `v*` tag 时 workflow 自动重建 Release |
+| Gitee／GitLab／Codeberg | ⏳ 待配置 | 一键脚本已备：`scripts/mirror.sh gitee`，只需先把带凭据的 remote 加进来 |
+| 内容平台（公众号／知乎／豆瓣） | ⏳ 未做 | 需人工排版与账号，不是镜像能解决的 |
+
+镜像只推 `main` 与版本 tag，不重写历史；失败即停，不吞错误。

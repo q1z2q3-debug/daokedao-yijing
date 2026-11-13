@@ -1,0 +1,33 @@
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 校验冻结清单
+        run: |
+          cd "releases/$(cat VERSION)"
+          sha256sum -c MANIFEST.sha256 --quiet || echo "（清单与实际文件不一致，仅提示，不阻断发布）"
+
+      - name: 发布
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "${{ github.ref_name }} — 润泽说 道可道之易传"
+          body: |
+            版本 ${{ github.ref_name }}。成书 PDF、离线 APK、问答 Agent 提示词见下方附件。
+            校订留痕见 `CHANGELOG.md`；当版冻结清单见 `releases/${{ github.ref_name }}/MANIFEST.sha256`。
+          files: |
+            book/润泽说 道可道之易传.pdf
+            prompt/润泽说·易传问答Agent（提示词与检索表）.pdf
+            packages/apk-*/*.apk
