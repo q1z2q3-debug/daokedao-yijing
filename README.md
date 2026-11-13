@@ -41,8 +41,25 @@
 
 ## 三、在线读
 
-- 阅读页：[`docs/index.html`](docs/index.html)（仓库 Pages 同址，开箱可读）
-- 全书 PDF 与离线 APK 见 [Releases](../../releases)
+站点：<https://q1z2q3-debug.github.io/daokedao-yijing/>
+
+```
+/                     首页：全书结构、四件产物入口、六十四卦索引
+/book.html            全书一页（1.75 MB，单文件自包含）
+/p/01-qian-kun/ …     逐卦页 70 个：每卦一个 canonical、独立 description、上下卦链接
+/p/xici-shang/ 等     系辞上／下、忧患九卦、总序、前言、凡例、后记
+/sitemap.xml          72 条
+/robots.txt  /llms.txt
+```
+
+站点由脚本生成，不手改页面：
+
+```bash
+bash scripts/build.sh        # 主本 md → 阅读页 html（pandoc）
+python3 scripts/build-site.py  # 阅读页 → docs/ 全站 + sitemap + robots + llms.txt
+```
+
+`docs/` 是构建产物，源头永远是 `book/…md`；改了正文就重跑上面两条，别就地编辑 HTML。
 
 ## 四、离线读
 
@@ -98,6 +115,17 @@
 | GitHub Pages | ✅ 已上线 | `docs/index.html` 即全书阅读页，手机可直接读 |
 | GitHub Release | ✅ 已发布 | v1.50.0 附 PDF／APK／提示词 PDF 三件；打 `v*` tag 时 workflow 自动重建 Release |
 | Gitee／GitLab／Codeberg | ⏳ 待配置 | 一键脚本已备：`scripts/mirror.sh gitee`，只需先把带凭据的 remote 加进来 |
-| 内容平台（公众号／知乎／豆瓣） | ⏳ 未做 | 需人工排版与账号，不是镜像能解决的 |
+| dev.to | ⏳ 稿已备，待 API key | 英文／中文两稿在 `publish/`；`DEVTO_API_KEY` 一到即可 `scripts/publish-devto.py` 直发（含 canonical 回指本站） |
+| 公众号／知乎／豆瓣 | ⏳ 未做 | 需人工排版与账号，不是镜像能解决的 |
 
 镜像只推 `main` 与版本 tag，不重写历史；失败即停，不吞错误。
+
+## 十、检索（SEO）做了哪些
+
+- 每卦一页、独立 canonical 与 50–75 字描述；描述取自该卷卷眼，不拼标题
+- `sitemap.xml` 72 条、`robots.txt`、`llms.txt`
+- JSON-LD：逐页 `Article`，首页 `Book` + `hasPart`（六十四章）
+- Open Graph／Twitter Card，共用一张 1200×630 分享图 `docs/og.png`
+- 仓库 topics：`yijing` `iching` `zhouyi` `chinese-classics` 等
+
+站点上线后可在 Google Search Console／Bing 站长工具提交 `sitemap.xml`（需你用自己账号登录，我无法代填）。
