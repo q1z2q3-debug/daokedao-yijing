@@ -53,7 +53,9 @@ def main():
     req = urllib.request.Request(
         API,
         data=json.dumps({"article": art}).encode(),
-        headers={"api-key": key, "Content-Type": "application/json", "Accept": "application/vnd.forem.api-v1+json"},
+        headers={"api-key": key, "Content-Type": "application/json",
+                 "Accept": "application/vnd.forem.api-v1+json",
+                 "User-Agent": "Mozilla/5.0 (compatible; daokedao-publish/1.0)"},
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=60) as r:
