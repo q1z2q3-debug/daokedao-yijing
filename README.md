@@ -102,6 +102,23 @@ python3 scripts/build-site.py  # 阅读页 → docs/ 全站 + sitemap + robots +
 
 [CC BY-NC-SA 4.0](LICENSE)：署名、非商业、相同方式共享。引用请注明书名与版本号（如「《润泽说 道可道之易传》v1.50.0」）。
 
+## 永久存档与引用
+
+本版已在三处留存，互为备份：
+
+| 位置 | 用途 | 地址 |
+|---|---|---|
+| Zenodo（DOI） | 学术引用、长期存档 | [10.5281/zenodo.24185930](https://doi.org/10.5281/zenodo.24185930) |
+| HuggingFace 数据集 | 全文检索、语料取用 | <https://huggingface.co/datasets/q1z2q3/daokedao-yijing> |
+| GitHub Releases | 成书 PDF / APK / 提示词下载 | <https://github.com/q1z2q3-debug/daokedao-yijing/releases/tag/v1.50.0> |
+
+引用格式：
+
+```
+润泽说易. (2026). 《润泽说 道可道之易传》(v1.50.0) [Book]. Zenodo.
+https://doi.org/10.5281/zenodo.24185930
+```
+
 ## 八、版本
 
 当前 **v1.50.0**（2026-11-13）。六十四卦已全，卦卷六十三；此后只作修订与勘误，不再新增卦卷。
