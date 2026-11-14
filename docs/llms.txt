@@ -9,6 +9,7 @@
 - HuggingFace 数据集（全文检索）：https://huggingface.co/datasets/q1z2q3/daokedao-yijing
 - 引用格式与附件清单：https://q1z2q3-debug.github.io/daokedao-yijing/cite/
 - 源码与逐版校订留痕：https://github.com/q1z2q3-debug/daokedao-yijing
+- 系列总站（三部书统一入口）：https://q1z2q3-debug.github.io/runze-daokedao/
 - 全书索引：https://q1z2q3-debug.github.io/daokedao-yijing/sitemap.xml
 
 ## 体例

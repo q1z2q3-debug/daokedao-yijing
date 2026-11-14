@@ -109,6 +109,7 @@ python3 scripts/build-site.py  # 阅读页 → docs/ 全站 + sitemap + robots +
 | 位置 | 用途 | 地址 |
 |---|---|---|
 | Zenodo（DOI） | 学术引用、长期存档 | [10.5281/zenodo.24185930](https://doi.org/10.5281/zenodo.24185930) |
+| 系列总站 | 三部书统一入口 | [润泽说 道可道](https://q1z2q3-debug.github.io/runze-daokedao/) |
 | HuggingFace 数据集 | 全文检索、语料取用 | <https://huggingface.co/datasets/q1z2q3/daokedao-yijing> |
 | GitHub Releases | 成书 PDF / APK / 提示词下载 | <https://github.com/q1z2q3-debug/daokedao-yijing/releases/tag/v1.50.0> |
 
