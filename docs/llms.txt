@@ -18,3 +18,4 @@
 
 ## 许可
 CC BY-NC-SA 4.0。引用请注明书名与版本号。
+- https://q1z2q3-debug.github.io/daokedao-yijing/english/ 英文稿六十四篇索引（一卦一篇，canonical 指回 p/NN-slug/）
