@@ -147,3 +147,7 @@ https://doi.org/10.5281/zenodo.24185930
 - 仓库 topics：`yijing` `iching` `zhouyi` `chinese-classics` 等
 
 站点上线后可在 Google Search Console／Bing 站长工具提交 `sitemap.xml`（需你用自己账号登录，我无法代填）。
+
+## 商业使用
+
+本书公开层为 CC BY-NC-SA 4.0；商业训练、商业分发与第三方素材边界见 [`NOTICE.md`](NOTICE.md)。
