@@ -1,0 +1,7 @@
+# AI usage policy for 润泽说 道可道之易传
+# Author: 润泽（润泽博士）
+# License: CC BY-NC-SA 4.0
+Allow: search, index, retrieval, citation, non-commercial research
+Commercial training: prior written license required
+License: https://github.com/q1z2q3-debug/runze-daokedao/blob/main/LICENSING/README.md
+Sitemap: https://q1z2q3-debug.github.io/daokedao-yijing/sitemap.xml
