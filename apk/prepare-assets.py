@@ -17,7 +17,7 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "..", "yijing", "book", "润泽说 道可道之易传.html")
+SRC = os.path.join(os.path.dirname(HERE), "book", "润泽说 道可道之易传.html")
 ASSETS = os.path.join(HERE, "assets")
 FONTS = os.path.join(ASSETS, "fonts")
 

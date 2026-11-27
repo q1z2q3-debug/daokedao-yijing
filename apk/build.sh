@@ -21,10 +21,10 @@ if [ -z "${JAVA_HOME:-}" ]; then
 fi
 
 VAULT=${VAULT:-$HOME/.daokedao-vault}
-KS="$VAULT/apk-signing.jks"
-KP="$VAULT/apk-signing.pass"
+KS="${APK_KS:-/home/user/keys/runze-release.keystore}"
+APK_PASS=${APK_PASS:-runze2026}
 VERNAME=1.50.0
-VERCODE=15000
+VERCODE=15001
 
 echo "== 1/6 资源编译 =="
 rm -rf build dist && mkdir -p build/gen build/classes build/dex dist
@@ -70,7 +70,7 @@ if [ ! -f "$KS" ]; then
   chmod 600 "$KS"
 fi
 "$BT/apksigner" sign \
-  --ks "$KS" --ks-pass "file:$KP" --key-pass "file:$KP" \
+  --ks "$KS" --ks-pass "pass:$APK_PASS" --key-pass "pass:$APK_PASS" \
   --min-sdk-version 21 \
   --out "dist/道可道-易传-$VERNAME.apk" build/aligned.apk
 "$BT/apksigner" verify --min-sdk-version 21 "dist/道可道-易传-$VERNAME.apk" | head -5
