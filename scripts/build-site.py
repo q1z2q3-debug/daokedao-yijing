@@ -321,6 +321,8 @@ def build_landing(entries):
     )
     upper, lower = [], []
     for i, g in enumerate(ORDER, 1):
+        if g == "坤":
+            continue   # 坤与乾合页（01-qian-kun），不另设独立页
         item = ('<a href="%s/p/%s/"><span class="hex">%s</span><span class="no">%d</span>'
                 '<span class="nm">%s</span></a>' % (SITE, PY[g], hexchar[g], i, g))
         (upper if i <= 30 else lower).append(item)
@@ -342,7 +344,8 @@ def build_landing(entries):
         "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
         "url": SITE + "/",
         "image": SITE + "/og.png",
-        "hasPart": [{"@type": "Chapter", "name": "%s卦" % g, "url": "%s/p/%s/" % (SITE, PY[g])} for g in ORDER],
+        "hasPart": [{"@type": "Chapter", "name": "%s卦" % g,
+                      "url": "%s/p/%s/" % (SITE, "01-qian-kun" if g == "坤" else PY[g])} for g in ORDER],
     }
     write(os.path.join(DOCS, "index.html"), LAND.format(
         book=BOOK, ver=VER, desc=DESC, site=SITE, author=AUTHOR,
